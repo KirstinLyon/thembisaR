@@ -1,19 +1,20 @@
 #' Read in all data from Thembisa excel file
 #'
 #' @param filename path to the Thembisa excel file
+#' @param sheets_to_exclude sheets to exclude from reading, default is "Notes"
 #'
 #' @returns cleaned dataset
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#'   read_sex_age_specific_file(filename)
+#'   read_sex_age_specific_file(filename, sheets_to_exclude)
 #' }
 #'
-read_sex_age_specific_file <- function(filename){
+read_sex_age_specific_file <- function(filename, sheets_to_exclude = "Notes"){
 
     sheet_names <- readxl::excel_sheets(filename)
-    sheet_names <- dplyr::setdiff(readxl::excel_sheets(filename), "Notes")
+    sheet_names <- dplyr::setdiff(readxl::excel_sheets(filename), sheets_to_exclude)
 
     all_data <- sheet_names %>%
         purrr::set_names() %>%  # keep sheet names as list names

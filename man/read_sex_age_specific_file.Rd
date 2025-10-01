@@ -4,10 +4,12 @@
 \alias{read_sex_age_specific_file}
 \title{Read in all data from Thembisa excel file}
 \usage{
-read_sex_age_specific_file(filename)
+read_sex_age_specific_file(filename, sheets_to_exclude = "Notes")
 }
 \arguments{
 \item{filename}{path to the Thembisa excel file}
+
+\item{sheets_to_exclude}{sheets to exclude from reading, default is "Notes"}
 }
 \value{
 cleaned dataset
@@ -17,7 +19,7 @@ Read in all data from Thembisa excel file
 }
 \examples{
 \dontrun{
-  read_sex_age_specific_file(filename)
+  read_sex_age_specific_file(filename, sheets_to_exclude)
 }
 
 }
