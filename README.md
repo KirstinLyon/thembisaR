@@ -2,7 +2,7 @@
 
 An R package for loading, cleaning, and reshaping Thembisa model outputs for use in downstream analysis and visualisation.
 
-This package cleans the sex_age_specific excel data available from [Thembisa.org](thembisa.org).
+This package cleans the [age-specific national and provincial model outputs](https://thembisa.org/content/downloadPage/AgeOutput4_82) excel data available from [Thembisa.org](#0){style="font-size: 11pt;"}. It was tested on version 4.8.
 
 ## Installation
 
