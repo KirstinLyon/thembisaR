@@ -14,6 +14,7 @@ remotes::install_github("KirstinLyon/thembisaR")
 
 ``` r
 library(thembisaR)
+library(dplyr) #only if you want one sheet cleaned and need to add the sheet name
 
 your_local_file <- "path/filename"
 
@@ -30,7 +31,8 @@ all_thembisa_data <- read_sex_age_sepcific(your_local_file, sheets_to_exclude)
 one_sheet <- readxl::read_xlsx(your_local_file,
                              sheet = "name_of_sheet")
 
-one_tab_thembisa_data <- clean_sex_age_specific(one_sheet)
+one_tab_thembisa_data <- clean_sex_age_specific(one_sheet) |> 
+    dplyr::mutate(country_province = "name_of_sheet")
 ```
 
 ## Demo / App
