@@ -1,9 +1,9 @@
 Package: thembisaR
-Title: What the Package Does (One Line, Title Case)
+Title: Thembisa Sex-Age Data Reader and Cleaner
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Kirstin", "Lyon", , "kirstin@mltwelve.com", role = c("aut", "cre"))
+Description: This package reads and cleans the sex_age_specific file from Thembisa.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -11,5 +11,8 @@ RoxygenNote: 7.3.3
 Imports: 
     dplyr,
     janitor,
+    magrittr,
+    purrr,
+    readxl,
     stringr,
     tidyr

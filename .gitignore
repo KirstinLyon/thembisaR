@@ -48,3 +48,12 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 .Rproj.user
+
+
+# More files to ignore
+*.qmd
+*.ipynb
+*.html
+*.md
+*.yml
+*.yaml
