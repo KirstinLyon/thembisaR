@@ -63,28 +63,28 @@ clean_sex_age_specific <- function(excel_tab) {
 
 clean_prov_output <- function(nat_prov_sheet){
 
-    temp <- nat_prov_sheet |>
-        janitor::clean_names() |>
+    temp <- nat_prov_sheet %>%
+        janitor::clean_names() %>%
         dplyr::rename(category_indicator = x1,
-                      statistic = x2) |>
+                      statistic = x2) %>%
         dplyr::mutate(category = dplyr::case_when(is.na(statistic) ~ category_indicator,
                                                   TRUE ~ NA_character_),
                       indicator = dplyr::case_when(!is.na(statistic) ~ category_indicator,
                                                    TRUE ~ NA_character_)
-        ) |>
+        ) %>%
         tidyr::fill(category, .direction = "down") %>%
         tidyr::fill(indicator, .direction = "down") %>%
-        tidyr::drop_na(statistic) |>
-        dplyr::select(-category_indicator) |>
-        dplyr::select_if(~ !all(is.na(.x))) |>  # removes all empty columns
+        tidyr::drop_na(statistic) %>%
+        dplyr::select(-category_indicator) %>%
+        dplyr::select_if(~ !all(is.na(.x))) %>%  # removes all empty columns
 
 
         tidyr::pivot_longer(cols = -c(category, indicator, statistic),
                             names_to = "year",
 
-                            values_to = "value") |>
+                            values_to = "value") %>%
         dplyr::mutate(year = stringr::str_remove(year, "x"),
-                      year = as.integer(year)) |>
+                      year = as.integer(year)) %>%
         tidyr::pivot_wider(names_from = statistic,
                            values_from = value)
 

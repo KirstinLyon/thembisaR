@@ -19,21 +19,34 @@ library(readlxl) #only if you want one sheet cleaned
 
 your_local_file <- "path/filename"
 
-#Any sheets that should be excluded from your dataset
-
-sheets_to_exclude <- c("Notes")
-
 #Read and clean all tabs in the excel sheet. Default is to exclude the "Notes" tab
 
-all_thembisa_data <- read_sex_age_specific_file(your_local_file, sheets_to_exclude)
+all_thembisa_age_data <- read_sex_age_specific_file(your_local_file)
 
 #Clean one sheet
-
 one_sheet <- readxl::read_xlsx(your_local_file,
                              sheet = "name_of_sheet")
 
 one_tab_thembisa_data <- clean_sex_age_specific(one_sheet) |> 
     dplyr::mutate(country_province = "name_of_sheet")
+
+
+
+# Provincial Example - either HIV or TB estimates
+your_provincial_file <-"path/filename"
+
+# All data. Default is to exclude Notes, Comparison and Abbreviations tabs.
+
+all_thembisa_prov_data <- read_prov_output(your_local_file)
+
+# One sheet exmaple
+
+one_sheet <- readxl::read_xlsx(your_local_file,
+                             sheet = "name_of_sheet")
+
+one_tab_thembisa_prov_data <- clean_prov_output(one_sheet) |> 
+    dplyr::mutate(country_province = "name_of_sheet")
+
 ```
 
 ## Demo / App
