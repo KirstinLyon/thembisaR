@@ -40,7 +40,7 @@ clean_sex_age_specific <- function(excel_tab) {
                    stringr::str_remove(indicator, "^\\S+\\s+"),  # drop first word + spaces
                    indicator                            # leave unchanged
                ),
-               indicator = stringr::str_to_sentence(indicator)
+               indicator = stringr::str_c(stringr::str_to_upper(stringr::str_sub(indicator, 1, 1)), stringr::str_sub(indicator, 2))
         )
 
     return(temp)
