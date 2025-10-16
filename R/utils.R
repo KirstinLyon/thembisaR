@@ -58,7 +58,7 @@ add_formatting_label_cells <- function(a_file, a_sheet = "SA", a_col = 43){
 
     temp <- a_data %>%
         dplyr::mutate(
-            col_format = purrr::map(dplyr::row_number(), \(i) {
+            format = purrr::map(dplyr::row_number(), \(i) {
                 if (thembisaR::is_percentage(wb, "SA", i)) "Percentage" else "Number"
             }) %>%
                 unlist(use.names = FALSE)
