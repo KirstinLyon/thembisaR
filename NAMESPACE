@@ -2,8 +2,11 @@
 
 export("%>%")
 export(add_country_province_name)
+export(add_formatting_label_cells)
+export(add_formatting_label_keywords)
 export(clean_prov_output)
 export(clean_sex_age_specific)
+export(is_percentage)
 export(read_prov_output)
 export(read_sex_age_specific_file)
 importFrom(magrittr,"%>%")

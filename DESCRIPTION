@@ -12,6 +12,8 @@ Imports:
     dplyr,
     janitor,
     magrittr,
+    openxlsx,
+    openxlsx2,
     purrr,
     readxl,
     stringr,
